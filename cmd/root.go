@@ -14,15 +14,15 @@ import (
 
 // RootCmd for all
 var RootCmd = &cobra.Command{
-	Use:   "poorcount [flags]",
+	Use:   "mc-poorcount [flags]",
 	Short: "A CLI for attaching to an RCON enabled game server",
 	Example: `
-poorcount --host mc1 --port 25575
-poorcount --port 25575
-RCON_PORT=25575 poorcount
+mc-poorcount --host mc1 --port 25575
+mc-poorcount --port 25575
+RCON_PORT=25575 mc-poorcount
 `,
 	Long: `
-poorcount is a CLI for count number of people present on the server tool.
+mc-poorcount is a CLI for count number of people present on the server tool.
 `,
 	Run: func(cmd *cobra.Command, args []string) {
 
