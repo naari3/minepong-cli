@@ -33,6 +33,7 @@ github.com/gomodule/redigo v2.0.0+incompatible h1:K/R+8tc58AaqLkqG2Ol3Qk+DR/TlNu
 github.com/gomodule/redigo v2.0.0+incompatible/go.mod h1:B4C85qUVwatsJoIUNIfCRsp7qO0iAmpGFZ4EELWSbC4=
 github.com/hashicorp/hcl v1.0.0 h1:0Anlzjpi4vEasTeNFn2mLJgTSwt0+6sfsiTG8qcWGx4=
 github.com/hashicorp/hcl v1.0.0/go.mod h1:E5yfLk+7swimpb2L/Alb/PJmXilQ/rhwaUYs4T20WEQ=
+github.com/inconshreveable/mousetrap v1.0.0 h1:Z8tu5sraLXCXIcARxBp/8cbvlwVa7Z1NHg9XEKhtSvM=
 github.com/inconshreveable/mousetrap v1.0.0/go.mod h1:PxqpIevigyE2G7u3NXJIT2ANytuPF1OarO4DADm73n8=
 github.com/itzg/rcon-cli v0.0.0-20190111022523-722c7b7e2e1b h1:6zEz1zoXMEVbbhOgSl/+xFH12Er5RC3YckcTzOs0Gjc=
 github.com/itzg/rcon-cli v0.0.0-20190111022523-722c7b7e2e1b/go.mod h1:w4Qh2Aag64euIZvB7RynmEbmFgrOBzgP3WhnOCJO1k8=
