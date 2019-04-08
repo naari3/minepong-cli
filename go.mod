@@ -1,4 +1,4 @@
-module github.com/naari3/mc-poorcount
+module github.com/naari3/minepong-cli
 
 go 1.12
 

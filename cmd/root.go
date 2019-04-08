@@ -7,7 +7,7 @@ import (
 	"os"
 	"strconv"
 
-	"github.com/naari3/mc-poorcount/cli"
+	"github.com/naari3/minepong-cli/cli"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
 )

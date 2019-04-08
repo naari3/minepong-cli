@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/naari3/mc-poorcount/cmd"
+	"github.com/naari3/minepong-cli/cmd"
 )
 
 func main() {

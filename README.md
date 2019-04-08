@@ -1,25 +1,25 @@
-# mc-poorcount
+# minepong-cli
 
-CLI for count number of people present on Minecraft server tool.
+A CLI for get information about Minecraft server.
 
 ## Usage
 
 ```
-mc-poorcount is a CLI for count number of people present on Minecraft server tool.
+minepong-cli is a CLI for get information about Minecraft server metadata.
 
 Usage:
-  mc-poorcount [flags]
+  minepong-cli [flags]
 
 Examples:
 
-mc-poorcount --host mc1 --port 25575
-mc-poorcount --port 25575
-RCON_PORT=25575 mc-poorcount
+minepong-cli --host mc1 --port 25575
+minepong-cli --port 25575
+MC_PORT=25575 minepong-cli
 
 
 Flags:
-  -h, --help              help for mc-poorcount
-      --host string       RCON server's hostname (default "localhost")
-      --password string   RCON server's password
-      --port int          Server's RCON port (default 25575)
+  -h, --help          help for minepong-cli
+      --host string   server's hostname (default "localhost")
+      --port int      Server's port (default 25565)
+  -p, --pretty        Use pretty printing
 ```
