@@ -19,7 +19,7 @@ type ServerStatus struct {
 	MotdExtra     interface{}               `json:"motd_extra,omitempty"`
 	MotdFormatted string                    `json:"motd_formatted,omitempty"`
 	Favicon       string                    `json:"favicon,omitempty"`
-	Error         string                    `json:"error"`
+	Error         string                    `json:"error,omitempty"`
 	Players       types.ServerStatusPlayers `json:"players"`
 	Server        types.ServerStatusServer  `json:"server"`
 }
@@ -132,12 +132,12 @@ func getMotd(description interface{}) (string, interface{}, string) {
 			motdFormatted = strings.Replace(f.String(), "\n", "<br>", -1)
 		} else if val, ok := desc["text"]; ok {
 			motd = val.(string)
-			motdExtra = types.MotdExtra{}
+			motdExtra = nil
 			motdFormatted = ""
 		}
 	default:
 		motd = ""
-		motdExtra = types.MotdExtra{}
+		motdExtra = nil
 		motdFormatted = ""
 	}
 
