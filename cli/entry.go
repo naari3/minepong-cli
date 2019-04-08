@@ -3,7 +3,7 @@ package cli
 import (
 	"bytes"
 	"encoding/json"
-	"fmt"
+	"os"
 	"strings"
 
 	"github.com/Syfaro/mcapi/types"
@@ -28,20 +28,15 @@ type ServerStatus struct {
 func Execute(hostname string, pretty bool) {
 	status := getServerStatus(hostname)
 
-	var (
-		outputJSON []byte
-		err        error
-	)
+	enc := json.NewEncoder(os.Stdout)
 	if pretty {
-		outputJSON, err = json.MarshalIndent(&status, "", "  ")
-	} else {
-		outputJSON, err = json.Marshal(&status)
+		enc.SetIndent("", "  ")
 	}
+	err := enc.Encode(&status)
 
 	if err != nil {
 		panic(err)
 	}
-	fmt.Println(string(outputJSON))
 }
 
 func getServerStatus(hostname string) *ServerStatus {
