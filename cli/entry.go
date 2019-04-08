@@ -10,18 +10,32 @@ import (
 	"github.com/syfaro/minepong"
 )
 
+// ServerStatusPlayers contains information about the min and max numbers of players
+type ServerStatusPlayers struct {
+	Max    int                 `json:"max"`
+	Now    int                 `json:"now"`
+	Sample []map[string]string `json:"sample,omitempty"`
+}
+
+// ServerStatusServer contains information about the server version.
+// As it is a ping request, it is fairly basic information.
+type ServerStatusServer struct {
+	Name     string `json:"name"`
+	Protocol int    `json:"protocol"`
+}
+
 // ServerStatus contains all information available from a ping request.
 // It also includes fields about the success of a request.
 type ServerStatus struct {
-	Status        string                    `json:"status"`
-	Online        bool                      `json:"online"`
-	Motd          string                    `json:"motd"`
-	MotdExtra     interface{}               `json:"motd_extra,omitempty"`
-	MotdFormatted string                    `json:"motd_formatted,omitempty"`
-	Favicon       string                    `json:"favicon,omitempty"`
-	Error         string                    `json:"error,omitempty"`
-	Players       types.ServerStatusPlayers `json:"players"`
-	Server        types.ServerStatusServer  `json:"server"`
+	Status        string              `json:"status"`
+	Online        bool                `json:"online"`
+	Motd          string              `json:"motd"`
+	MotdExtra     interface{}         `json:"motd_extra,omitempty"`
+	MotdFormatted string              `json:"motd_formatted,omitempty"`
+	Favicon       string              `json:"favicon,omitempty"`
+	Error         string              `json:"error,omitempty"`
+	Players       ServerStatusPlayers `json:"players"`
+	Server        ServerStatusServer  `json:"server"`
 }
 
 // Execute ping to minecraft server
@@ -53,6 +67,7 @@ func getServerStatus(hostname string) *ServerStatus {
 		status.Favicon = pong.FavIcon
 		status.Players.Max = pong.Players.Max
 		status.Players.Now = pong.Players.Online
+		status.Players.Sample = pong.Players.Sample
 		status.Server.Name = pong.Version.Name
 		status.Server.Protocol = pong.Version.Protocol
 		status.Error = ""
