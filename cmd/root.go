@@ -14,22 +14,21 @@ import (
 
 // RootCmd for all
 var RootCmd = &cobra.Command{
-	Use:   "mc-poorcount [flags]",
-	Short: "A CLI for count number of people present on Minecraft server tool",
+	Use:   "minepong-cli [flags]",
+	Short: "A CLI for get information about Minecraft server",
 	Example: `
-mc-poorcount --host mc1 --port 25575
-mc-poorcount --port 25575
-RCON_PORT=25575 mc-poorcount
+minepong-cli --host mc1 --port 25575
+minepong-cli --port 25575
+MC_PORT=25575 minepong-cli
 `,
 	Long: `
-mc-poorcount is a CLI for count number of people present on Minecraft server tool.
+minepong-cli is a CLI for get information about Minecraft server metadata.
 `,
 	Run: func(cmd *cobra.Command, args []string) {
-
 		hostPort := net.JoinHostPort(viper.GetString("host"), strconv.Itoa(viper.GetInt("port")))
-		password := viper.GetString("password")
+		pretty := viper.GetBool("pretty")
 
-		cli.Execute(hostPort, password)
+		cli.Execute(hostPort, pretty)
 	},
 }
 
@@ -45,9 +44,9 @@ func Execute() {
 func init() {
 	cobra.OnInitialize(initConfig)
 
-	RootCmd.PersistentFlags().String("host", "localhost", "RCON server's hostname")
-	RootCmd.PersistentFlags().String("password", "", "RCON server's password")
-	RootCmd.PersistentFlags().Int("port", 25575, "Server's RCON port")
+	RootCmd.PersistentFlags().String("host", "localhost", "server's hostname")
+	RootCmd.PersistentFlags().Int("port", 25565, "Server's port")
+	RootCmd.PersistentFlags().Bool("pretty", false, "Use pretty printing")
 	err := viper.BindPFlags(RootCmd.PersistentFlags())
 	if err != nil {
 		log.Fatal(err)
@@ -56,12 +55,7 @@ func init() {
 
 // initConfig reads in config file and ENV variables if set.
 func initConfig() {
-	// This will allow for env vars like RCON_PORT
-	viper.SetEnvPrefix("rcon")
+	// This will allow for env vars like MC_PORT
+	viper.SetEnvPrefix("mc")
 	viper.AutomaticEnv() // read in environment variables that match
-
-	// If a config file is found, read it in.
-	if err := viper.ReadInConfig(); err == nil {
-		fmt.Println("Using config file:", viper.ConfigFileUsed())
-	}
 }
