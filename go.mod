@@ -3,7 +3,6 @@ module github.com/naari3/minepong-cli
 go 1.12
 
 require (
-	github.com/Syfaro/mcapi v0.0.0-20190405073218-f7fdc8761952
 	github.com/itzg/rcon-cli v0.0.0-20190111022523-722c7b7e2e1b
 	github.com/james4k/rcon v0.0.0-20120923215419-8fbb8268b60a
 	github.com/spf13/cobra v0.0.3
