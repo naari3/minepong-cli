@@ -2,6 +2,8 @@
 
 A CLI for get information about Minecraft server.
 
+Just wrapped https://github.com/Syfaro/minepong for CLI
+
 ## Usage
 
 ```
@@ -22,4 +24,23 @@ Flags:
       --host string   server's hostname (default "localhost")
       --port int      Server's port (default 25565)
   -p, --pretty        Use pretty printing
+```
+
+## Example
+
+```json
+// $ minepong-cli --host localhost --port 25565 -p
+{
+  "status": "success",
+  "online": true,
+  "motd": "A Vanilla Minecraft Server powered by Docker",
+  "players": {
+    "max": 20,
+    "now": 0
+  },
+  "server": {
+    "name": "1.13.2",
+    "protocol": 404
+  }
+}
 ```
