@@ -46,7 +46,7 @@ func init() {
 
 	RootCmd.PersistentFlags().String("host", "localhost", "server's hostname")
 	RootCmd.PersistentFlags().Int("port", 25565, "Server's port")
-	RootCmd.PersistentFlags().Bool("pretty", false, "Use pretty printing")
+	RootCmd.PersistentFlags().BoolP("pretty", "p", false, "Use pretty printing")
 	err := viper.BindPFlags(RootCmd.PersistentFlags())
 	if err != nil {
 		log.Fatal(err)
